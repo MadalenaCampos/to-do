@@ -2,6 +2,8 @@ import "./App.css";
 import rocketLogo from "./assets/rocket.svg";
 import todoLogo from "./assets/todo.svg";
 
+import { CreateTask } from "./components/CreateTask/CreateTask";
+
 function App() {
   return (
     <div>
@@ -11,6 +13,8 @@ function App() {
           <img src={todoLogo} alt="logo" />
         </div>
       </div>
+
+      <CreateTask />
     </div>
   );
 }

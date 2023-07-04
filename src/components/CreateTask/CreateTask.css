@@ -1,0 +1,15 @@
+.content {
+  margin-top: -30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  display: flex;
+  gap: 8px;
+}
+
+input {
+  width: 663px;
+}

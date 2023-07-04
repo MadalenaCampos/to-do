@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import "./CreateTask.css";
 import plusIcon from "../../assets/plus.svg";
 
-interface TaskInfertace {
+export interface TaskInfertace {
   id: string;
   title: string;
   isComplete: boolean;
@@ -34,7 +34,7 @@ export function CreateTask() {
   }
 
   return (
-    <div className="content">
+    <div>
       <form className="form" onSubmit={handleTaskSubmit}>
         <input
           type="text"

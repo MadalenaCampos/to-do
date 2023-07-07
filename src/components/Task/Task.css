@@ -1,0 +1,12 @@
+.task {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 32px 630px 28px;
+  padding: 16px;
+  gap: 16px;
+
+  border-radius: 8px;
+  border: 1px solid var(--gray-400, #333);
+  background: var(--gray-500, #262626);
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
+}

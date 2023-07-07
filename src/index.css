@@ -76,35 +76,3 @@ button {
 button:hover {
   background: var(--blue);
 }
-
-input[type="checkbox"] {
-  display: none;
-}
-
-label {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  padding-left: 35px;
-  padding-top: 6px;
-}
-
-label:before {
-  content: "";
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  border: 2px solid var(--purple);
-  background-color: var(--gray-600);
-  position: absolute;
-  left: 0;
-  top: 2px;
-}
-
-input[type="checkbox"]:checked + label:before {
-  /* Colocar imagem */
-  content: url("../assets/logo-to-do.svg");
-  border-color: var(--purple-dark);
-  background-color: var(--purple-dark);
-}

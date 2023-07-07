@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import "./Tasks.css";
 import plusIcon from "../assets/plus.svg";
+import { Task } from "./Task/Task";
 
 export interface TaskInfertace {
   id: string;
@@ -11,8 +12,8 @@ export interface TaskInfertace {
 }
 
 export function Tasks() {
-  const [Taks, setTask] = useState<TaskInfertace[]>([]);
-  const [NewTask, setNewTask] = useState("");
+  const [tasks, setTask] = useState<TaskInfertace[]>([]);
+  const [newTask, setNewTask] = useState("");
 
   function handleNewTaks(event: ChangeEvent<HTMLInputElement>) {
     setNewTask(event.target.value);
@@ -21,15 +22,13 @@ export function Tasks() {
   function handleTaskSubmit(event: FormEvent) {
     event.preventDefault();
 
-    const newTask = {
+    const newTaskPayload = {
       id: uuidv4(),
-      title: NewTask,
+      title: newTask,
       isComplete: false,
     };
 
-    console.log(newTask);
-
-    setTask([...Taks, newTask]);
+    setTask([...tasks, newTaskPayload]);
     setNewTask("");
   }
 
@@ -41,13 +40,28 @@ export function Tasks() {
           placeholder="Adicione uma nova tarefa"
           name="task"
           onChange={handleNewTaks}
-          value={NewTask}
+          value={newTask}
           required
         />
         <button type="submit">
           Criar <img src={plusIcon} />
         </button>
       </form>
+
+      <div className="list">
+        {tasks.map((task: TaskInfertace) => {
+          return (
+            <div>
+              <Task
+                key={task.id}
+                id={task.id}
+                title={task.title}
+                isComplete={task.isComplete}
+              />
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

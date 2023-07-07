@@ -2,7 +2,7 @@ import "./App.css";
 import rocketLogo from "./assets/rocket.svg";
 import todoLogo from "./assets/todo.svg";
 
-import { CreateTask } from "./components/CreateTask";
+import { Tasks } from "./components/Tasks";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         </div>
       </div>
 
-      <CreateTask />
+      <Tasks />
     </div>
   );
 }

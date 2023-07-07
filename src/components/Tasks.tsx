@@ -1,8 +1,8 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import "./CreateTask.css";
-import plusIcon from "../../assets/plus.svg";
+import "./Tasks.css";
+import plusIcon from "../assets/plus.svg";
 
 export interface TaskInfertace {
   id: string;
@@ -10,7 +10,7 @@ export interface TaskInfertace {
   isComplete: boolean;
 }
 
-export function CreateTask() {
+export function Tasks() {
   const [Taks, setTask] = useState<TaskInfertace[]>([]);
   const [NewTask, setNewTask] = useState("");
 

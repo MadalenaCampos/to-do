@@ -13,8 +13,9 @@ function App() {
           <img src={todoLogo} alt="logo" />
         </div>
       </div>
-
-      <Tasks />
+      <div className="pageContent">
+        <Tasks />
+      </div>
     </div>
   );
 }

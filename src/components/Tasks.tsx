@@ -3,7 +3,9 @@ import { v4 as uuidv4 } from "uuid";
 
 import "./Tasks.css";
 import plusIcon from "../assets/plus.svg";
+
 import { Task } from "./Task/Task";
+import { Count } from "./Count/Count";
 
 export interface TaskInfertace {
   id: string;
@@ -14,6 +16,8 @@ export interface TaskInfertace {
 export function Tasks() {
   const [tasks, setTask] = useState<TaskInfertace[]>([]);
   const [newTask, setNewTask] = useState("");
+
+  const tasksCount = tasks.length;
 
   function handleNewTaks(event: ChangeEvent<HTMLInputElement>) {
     setNewTask(event.target.value);
@@ -33,7 +37,7 @@ export function Tasks() {
   }
 
   return (
-    <div>
+    <div className="tasksContent">
       <form className="form" onSubmit={handleTaskSubmit}>
         <input
           type="text"
@@ -47,6 +51,8 @@ export function Tasks() {
           Criar <img src={plusIcon} />
         </button>
       </form>
+
+      <Count key={"count"} concluidas={10} tarefasCriadas={tasksCount} />
 
       <div className="list">
         {tasks.map((task: TaskInfertace) => {

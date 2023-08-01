@@ -1,9 +1,10 @@
 .task {
+  padding: 16px;
   display: grid;
   align-items: center;
-  grid-template-columns: 32px 630px 28px;
-  padding: 16px;
-  gap: 16px;
+  justify-content: center;
+  grid-template-columns: 5% 90% 5%;
+  gap: 12px;
 
   border-radius: 8px;
   border: 1px solid var(--gray-400, #333);

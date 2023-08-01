@@ -10,3 +10,8 @@
   align-items: center;
   gap: 12px;
 }
+
+.pageContent {
+  max-width: 736px;
+  margin: auto;
+}

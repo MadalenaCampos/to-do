@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import "./Tasks.css";
 import plusIcon from "../assets/plus.svg";
+import clipboard from "../assets/clipboard.svg";
 
 import { Task } from "./Task/Task";
 import { Count } from "./Count/Count";
@@ -16,8 +17,6 @@ export interface TaskInfertace {
 export function Tasks() {
   const [tasks, setTask] = useState<TaskInfertace[]>([]);
   const [newTask, setNewTask] = useState("");
-
-  const tasksCount = tasks.length;
 
   function handleNewTaks(event: ChangeEvent<HTMLInputElement>) {
     setNewTask(event.target.value);
@@ -52,9 +51,20 @@ export function Tasks() {
         </button>
       </form>
 
-      <Count key={"count"} concluidas={10} tarefasCriadas={tasksCount} />
+      <Count key={"count"} concluidas={10} tarefasCriadas={tasks.length} />
 
       <div className="list">
+        {!tasks.length && (
+          <div className="noData">
+            <img src={clipboard}/>
+
+            <p>
+              <b>Você ainda não tem tarefas cadastradas</b> <br /> Crie tarefas
+              e organize seus itens a fazer
+            </p>
+          </div>
+        )}
+
         {tasks.map((task: TaskInfertace) => {
           return (
             <div>

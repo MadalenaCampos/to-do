@@ -7,10 +7,22 @@ import trashIcon from "../../assets/trash.svg";
 import Checkbox from "@mui/material/Checkbox";
 import { CheckCircle, RadioButtonUnchecked } from "@mui/icons-material";
 
-export function Task({ id, title, isComplete, onDeleteTask }: TaskInfertace) {
+export function Task({
+  id,
+  title,
+  isComplete,
+  onDeleteTask,
+  onCheckTask,
+}: TaskInfertace) {
   function handleDeleteTask() {
     if (onDeleteTask) {
       onDeleteTask({ id, title, isComplete });
+    }
+  }
+
+  function handleCheckTask() {
+    if (onCheckTask) {
+      onCheckTask({ id, title, isComplete });
     }
   }
 
@@ -20,6 +32,7 @@ export function Task({ id, title, isComplete, onDeleteTask }: TaskInfertace) {
         <Checkbox
           value={id}
           checked={isComplete}
+          onClick={handleCheckTask}
           icon={<RadioButtonUnchecked />}
           checkedIcon={<CheckCircle />}
           sx={{
@@ -31,7 +44,7 @@ export function Task({ id, title, isComplete, onDeleteTask }: TaskInfertace) {
         />
       </div>
 
-      <div className="title">
+      <div className={isComplete ? "titleChecked" : "title"}>
         <p>{title}</p>
       </div>
 

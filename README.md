@@ -2,6 +2,7 @@
 
 <img src='./src/assets/page2.png'>
 <img src='./src/assets/page.png'>
+<img src='./src/assets/page3.png'>
 
 > O To do é um projeto proposto pela Jornada Ignite do 🔗[React](https://react.dev/) da 🔗[RocketSeat](https://app.rocketseat.com.br), para reforçar conceitos importantes. A aplicação consiste em um simples controle de tarefas(to-do list).
 

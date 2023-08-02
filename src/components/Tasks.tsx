@@ -13,13 +13,14 @@ export interface TaskInfertace {
   title: string;
   isComplete: boolean;
   onDeleteTask?: (task: TaskInfertace) => void;
+  onCheckTask?: (task: TaskInfertace) => void;
 }
 
 export function Tasks() {
   const [tasks, setTasks] = useState<TaskInfertace[]>([]);
   const [newTask, setNewTask] = useState("");
 
-  const doneTasks = 0;
+  const doneTasks = tasks.filter((task) => task.isComplete).length;
 
   function handleNewTaks(event: ChangeEvent<HTMLInputElement>) {
     setNewTask(event.target.value);
@@ -40,6 +41,21 @@ export function Tasks() {
 
   function deleteTask(taskToDelete: TaskInfertace) {
     setTasks(tasks.filter((task) => task.id !== taskToDelete.id));
+  }
+
+  function checkTask(taskToCheck: TaskInfertace) {
+    setTasks(
+      tasks.map((task) => {
+        if (task.id === taskToCheck.id) {
+          return {
+            ...task,
+            isComplete: !task.isComplete,
+          };
+        }
+
+        return task;
+      })
+    );
   }
 
   return (
@@ -85,6 +101,7 @@ export function Tasks() {
                 title={task.title}
                 isComplete={task.isComplete}
                 onDeleteTask={deleteTask}
+                onCheckTask={checkTask}
               />
             </div>
           );

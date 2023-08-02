@@ -12,10 +12,11 @@ export interface TaskInfertace {
   id: string;
   title: string;
   isComplete: boolean;
+  onDeleteTask?: (task: TaskInfertace) => void;
 }
 
 export function Tasks() {
-  const [tasks, setTask] = useState<TaskInfertace[]>([]);
+  const [tasks, setTasks] = useState<TaskInfertace[]>([]);
   const [newTask, setNewTask] = useState("");
 
   const doneTasks = 0;
@@ -33,8 +34,12 @@ export function Tasks() {
       isComplete: false,
     };
 
-    setTask([...tasks, newTaskPayload]);
+    setTasks([...tasks, newTaskPayload]);
     setNewTask("");
+  }
+
+  function deleteTask(taskToDelete: TaskInfertace) {
+    setTasks(tasks.filter((task) => task.id !== taskToDelete.id));
   }
 
   return (
@@ -79,6 +84,7 @@ export function Tasks() {
                 id={task.id}
                 title={task.title}
                 isComplete={task.isComplete}
+                onDeleteTask={deleteTask}
               />
             </div>
           );
